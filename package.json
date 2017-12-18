@@ -1,19 +1,26 @@
 {
-  "name": "apollo-upload-client",
-  "version": "7.0.0-alpha.1",
-  "description": "Enhances Apollo Client for intuitive file uploads via GraphQL mutations.",
+  "name": "@novistore/apollo-upload-client",
+  "version": "7.0.0-alpha.3",
+  "description": "Enhances Apollo Client for intuitive file uploads via GraphQL mutations using Absinthe's upload handling.",
   "license": "MIT",
   "author": {
     "name": "Jayden Seric",
     "email": "me@jaydenseric.com",
     "url": "http://jaydenseric.com"
   },
+  "maintainers": [
+    {
+      "name": "Jeroen Visser",
+      "email": "npm@jrnv.nl",
+      "url": "https://jrnv.nl"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaydenseric/apollo-upload-client.git"
+    "url": "https://github.com/novistore/apollo-upload-client.git"
   },
-  "homepage": "https://github.com/jaydenseric/apollo-upload-client#readme",
-  "bugs": "https://github.com/jaydenseric/apollo-upload-client/issues",
+  "homepage": "https://github.com/novistore/apollo-upload-client#readme",
+  "bugs": "https://github.com/novistore/apollo-upload-client/issues",
   "keywords": [
     "apollo",
     "client",
@@ -34,7 +41,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.32",
     "@babel/runtime": "^7.0.0-beta.32",
-    "extract-files": "^2.0.1"
+    "@novistore/extract-files": "^3.0.0-alpha.1"
   },
   "peerDependencies": {
     "apollo-link": "^1.0.0",
