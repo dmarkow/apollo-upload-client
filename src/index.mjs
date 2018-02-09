@@ -1,19 +1,17 @@
 import { ApolloLink, Observable } from 'apollo-link'
 import { print } from 'graphql/language/printer'
-import { extractFiles } from 'extract-files'
+import { extractFiles } from '@novistore/extract-files'
 
-export { ReactNativeFile } from 'extract-files'
+export { ReactNativeFile } from '@novistore/extract-files'
 
-export const createUploadLink = (
-  {
-    includeExtensions,
-    uri: linkUri = '/graphql',
-    credentials: linkCredentials,
-    headers: linkHeaders,
-    fetchOptions: linkFetchOptions = {},
-    fetch: linkFetch = fetch
-  } = {}
-) =>
+export const createUploadLink = ({
+  includeExtensions,
+  uri: linkUri = '/graphql',
+  credentials: linkCredentials,
+  headers: linkHeaders,
+  fetchOptions: linkFetchOptions = {},
+  fetch: linkFetch = fetch
+} = {}) =>
   new ApolloLink(
     ({ operationName, variables, query, extensions, getContext, setContext }) =>
       new Observable(observer => {
@@ -54,22 +52,12 @@ export const createUploadLink = (
 
           fetchOptions.body = new FormData()
 
-          fetchOptions.body.append(
-            'operations',
-            JSON.stringify(requestOperation)
-          )
+          const { query, operationName, variables } = requestOperation
+          fetchOptions.body.append('query', query)
+          fetchOptions.body.append('operationName', operationName)
+          fetchOptions.body.append('variables', JSON.stringify(variables))
 
-          fetchOptions.body.append(
-            'map',
-            JSON.stringify(
-              files.reduce((map, { path }, index) => {
-                map[`${index}`] = [path]
-                return map
-              }, {})
-            )
-          )
-
-          files.forEach(({ file }, index) =>
+          files.forEach(({ file, index }) =>
             fetchOptions.body.append(index, file)
           )
         } else {

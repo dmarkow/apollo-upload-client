@@ -4,14 +4,16 @@
 
 [![npm version](https://img.shields.io/npm/v/apollo-upload-client.svg)](https://npm.im/apollo-upload-client) ![Licence](https://img.shields.io/npm/l/apollo-upload-client.svg) [![Github issues](https://img.shields.io/github/issues/jaydenseric/apollo-upload-client.svg)](https://github.com/jaydenseric/apollo-upload-client/issues) [![Github stars](https://img.shields.io/github/stars/jaydenseric/apollo-upload-client.svg)](https://github.com/jaydenseric/apollo-upload-client/stargazers)
 
-Enhances [Apollo](https://apollographql.com) for intuitive file uploads via GraphQL queries or mutations. Use with [apollo-upload-server](https://github.com/jaydenseric/apollo-upload-server).
+**This is a fork that is used to be able to support [Absinthe](https://github.com/absinthe-graphql/absinthe)'s way of handling file uploads**
+
+Enhances [Apollo](https://apollographql.com) for intuitive file uploads via GraphQL queries or mutations.
 
 ## Setup
 
 Install with peer dependencies using [npm](https://npmjs.com):
 
 ```
-npm install apollo-upload-client apollo-link graphql
+npm install @novistore/apollo-upload-client apollo-link graphql
 ```
 
 Initialize Apollo Client with this terminating link:
@@ -21,8 +23,6 @@ import { createUploadLink } from 'apollo-upload-client'
 
 const link = createUploadLink(/* Options */)
 ```
-
-See also the [setup instructions](https://github.com/jaydenseric/apollo-upload-server#setup) for the [`apollo-upload-server`](https://github.com/jaydenseric/apollo-upload-server) middleware.
 
 ### Options
 
@@ -88,7 +88,7 @@ export default graphql(gql`
 
 ### React Native
 
-Substitute [`File`](https://developer.mozilla.org/en/docs/Web/API/File) with `ReactNativeFile` from [`extract-files`](https://github.com/jaydenseric/extract-files):
+Substitute [`File`](https://developer.mozilla.org/en/docs/Web/API/File) with `ReactNativeFile` from [`extract-files`](https://github.com/novistore/extract-files):
 
 ```js
 import { ReactNativeFile } from 'apollo-upload-client'

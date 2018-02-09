@@ -1,5 +1,8 @@
 # apollo-upload-client changelog
 
+## 7.0.0-alpha.2
+* Change package to work with Absinthe's upload handling
+
 ## 7.0.0-alpha.1
 
 * Conform to the [GraphQL multipart request spec v2.0.0-alpha.2](https://github.com/jaydenseric/graphql-multipart-request-spec/releases/tag/v2.0.0-alpha.2).
